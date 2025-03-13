@@ -23,24 +23,17 @@
         <p>Transformación de acrílico, policarbonato sólido y corte láser.</p>
     </section>
     
-    <section id="catalogo">
-        <h2>Catálogo de Trabajos</h2>
-        <div class="galeria">
-            <img src="img/producto1.jpg" alt="Producto 1">
-            <img src="img/producto2.jpg" alt="Producto 2">
-            <img src="img/producto3.jpg" alt="Producto 3">
-        </div>
-    </section>
-    
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>WhatsApp: <a href="https://wa.me/" target="_blank">Enviar mensaje</a></p>
-        <p>Email: contacto@acrilicospegaz.com</p>
-        <p>Dirección: Siglo de Torreón 709 Nte; esquina con Guerrero, C.P. 27000</p>
-    </section>
-    
-    <footer>
-        <p>© 2025 Acrílicos Pegaz. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
+   <section id="catalogo">
+    <h2>Catálogo de Trabajos</h2>
+    <div class="galeria">
+        <img src="img/producto1.jpg" alt="Producto 1" onclick="mostrarImagen(this)">
+        <img src="img/producto2.jpg" alt="Producto 2" onclick="mostrarImagen(this)">
+        <img src="img/producto3.jpg" alt="Producto 3" onclick="mostrarImagen(this)">
+    </div>
+</section>
+
+<!-- Lightbox para ver imágenes en grande -->
+<div id="lightbox" class="lightbox">
+    <span class="cerrar" onclick="cerrarImagen()">&times;</span>
+    <img class="lightbox-imagen" id="imagenAmpliada">
+</div>
