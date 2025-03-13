@@ -37,3 +37,19 @@
     <span class="cerrar" onclick="cerrarImagen()">&times;</span>
     <img class="lightbox-imagen" id="imagenAmpliada">
 </div>
+    <script>
+    function mostrarImagen(img) {
+        let lightbox = document.getElementById("lightbox");
+        let imagenAmpliada = document.getElementById("imagenAmpliada");
+
+        imagenAmpliada.src = img.src; // Cambia la imagen del lightbox
+        lightbox.style.display = "flex"; // Muestra el lightbox
+    }
+
+    function cerrarImagen() {
+        document.getElementById("lightbox").style.display = "none"; // Oculta el lightbox
+    }
+</script>
+
+</body>
+</html>
