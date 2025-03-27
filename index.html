@@ -61,25 +61,30 @@
         /* Estilos para el carrusel */
         .carousel-container {
             position: relative;
-            max-width: 80%;
+            width: 400px; /* Ajusta el ancho del carrusel */
+            height: 300px; /* Ajusta la altura del carrusel */
             margin: auto;
             overflow: hidden;
             border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         .carousel-slide {
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
+
         .carousel-slide img {
-            min-width: 100%;
-            border-radius: 20px;
+            width: 100%; /* Ocupa el ancho del carrusel */
+            height: auto; /* Ajusta la altura proporcionalmente */
+            max-height: 300px; /* Limita la altura de las imágenes */
         }
+
         .carousel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
             border: none;
             padding: 10px;
@@ -87,12 +92,15 @@
             border-radius: 50%;
             font-size: 1.5em;
         }
+
         .carousel-btn.prev {
             left: 10px;
         }
+
         .carousel-btn.next {
             right: 10px;
         }
+
         /* Estilos para la sección de contacto */
         .contact-info {
             background: #FFA07A;
