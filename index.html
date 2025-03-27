@@ -83,7 +83,7 @@
       }
     }
     
-    /* Section and Scroll Animation Styles */
+    /* Section & Scroll Animation Styles */
     section {
       position: relative;
       padding: 60px 20px;
@@ -115,7 +115,7 @@
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
     
-    /* Sección Backgrounds */
+    /* Section Backgrounds */
     #inicio {
       background: linear-gradient(135deg, #bbdefb, #e3f2fd);
     }
@@ -133,11 +133,11 @@
       position: relative;
       width: 80%;
       max-width: 500px;
-      height: 350px;
+      height: 250px; /* Altura reducida para que no ocupe tanto espacio */
       margin: 40px auto;
       overflow: hidden;
       border-radius: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     
     .carousel-slide {
@@ -146,10 +146,10 @@
       transform: translateX(0);
     }
     
-    /* Cada imagen ocupará el 100% del ancho del contenedor. 
-       Cambiamos "object-fit" a "contain" para que la imagen se vea completa sin recortes. */
+    /* Cada imagen ocupa el 100% del contenedor y se muestra completa sin recortes */
     .carousel-slide img {
       flex: 0 0 100%;
+      width: 100%;
       height: 100%;
       object-fit: contain;
       cursor: pointer;
@@ -160,7 +160,7 @@
       transform: scale(1.05);
     }
     
-    /* Flechas del Carrusel: Pequeñas pero visibles */
+    /* Flechas del Carrusel – pequeñas pero visibles */
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -210,7 +210,7 @@
       text-decoration: underline;
     }
     
-    /* Modal for Expanded Image */
+    /* Modal for Expanded Image with Zoom */
     .modal {
       display: none;
       position: fixed;
@@ -268,7 +268,7 @@
       
       .carousel-container {
         width: 95%;
-        height: 300px;
+        height: 250px;
       }
       
       .carousel-btn {
@@ -315,6 +315,7 @@
       <h2>Portafolio</h2>
       <div class="carousel-container">
         <div class="carousel-slide">
+          <!-- Asegúrate de que todas las imágenes estén en esta lista -->
           <img src="producto1.jpg" alt="Producto 1">
           <img src="producto2.jpg" alt="Producto 2">
           <img src="producto3.jpg" alt="Producto 3">
@@ -343,7 +344,7 @@
     </div>
   </section>
   
-  <!-- Modal para imagen ampliada -->
+  <!-- Modal para zoom en imagen (se mantiene el efecto de zoom) -->
   <div id="imageModal" class="modal">
     <span class="modal-close" onclick="closeModal()">&times;</span>
     <img class="modal-content" id="modalImg" src="" alt="">
@@ -357,13 +358,13 @@
       const slides = document.querySelectorAll('.carousel-slide img');
       const totalSlides = slides.length;
       
-      // Definimos la función global para desplazar el carrusel
+      // Función global para desplazar el carrusel
       window.moveSlide = function(step) {
         slideIndex = (slideIndex + step + totalSlides) % totalSlides;
         slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
       };
       
-      // Modal: Abrir al hacer click en cada imagen
+      // Modal: Abrir zoom al hacer click en cada imagen
       const modal = document.getElementById('imageModal');
       const modalImg = document.getElementById('modalImg');
       
@@ -383,7 +384,7 @@
         modalImg.classList.remove('open');
       };
       
-      // IntersectionObserver para animar secciones al hacer scroll
+      // IntersectionObserver para animar las secciones al hacer scroll
       const sections = document.querySelectorAll('section');
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
