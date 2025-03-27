@@ -6,7 +6,6 @@
   <title>Acrílicos Pegaz</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  
   <style>
     /* Global Styles */
     body {
@@ -133,7 +132,7 @@
       position: relative;
       width: 80%;
       max-width: 500px;
-      height: 250px; /* Altura reducida para que no ocupe tanto espacio */
+      height: 250px; /* Altura reducida */
       margin: 40px auto;
       overflow: hidden;
       border-radius: 20px;
@@ -146,7 +145,8 @@
       transform: translateX(0);
     }
     
-    /* Cada imagen ocupa el 100% del contenedor y se muestra completa sin recortes */
+    /* Cada imagen ocupa el 100% del ancho de la .carousel-container.
+       Con object-fit: contain se muestran completas sin recorte. */
     .carousel-slide img {
       flex: 0 0 100%;
       width: 100%;
@@ -210,7 +210,7 @@
       text-decoration: underline;
     }
     
-    /* Modal for Expanded Image with Zoom */
+    /* Modal for Zoom (se mantiene el comportamiento de zoom al hacer click) */
     .modal {
       display: none;
       position: fixed;
@@ -315,7 +315,7 @@
       <h2>Portafolio</h2>
       <div class="carousel-container">
         <div class="carousel-slide">
-          <!-- Asegúrate de que todas las imágenes estén en esta lista -->
+          <!-- Asegúrate de que las rutas sean correctas -->
           <img src="producto1.jpg" alt="Producto 1">
           <img src="producto2.jpg" alt="Producto 2">
           <img src="producto3.jpg" alt="Producto 3">
@@ -334,17 +334,7 @@
     </div>
   </section>
   
-  <section id="contacto" class="contact-info hidden-section">
-    <div class="container">
-      <h2>Contacto</h2>
-      <p><strong>Dirección:</strong> Siglo de Torreón 709 Nte, esquina con Guerrero, C.P. 27000</p>
-      <p><strong>WhatsApp:</strong> <a href="https://wa.me/528711151758" target="_blank">+52 871 115 1758</a></p>
-      <p><strong>Email:</strong> (Pendiente)</p>
-      <p><strong>Envíos a toda la República Mexicana.</strong></p>
-    </div>
-  </section>
-  
-  <!-- Modal para zoom en imagen (se mantiene el efecto de zoom) -->
+  <!-- Modal para zoom en imagen (se mantiene el efecto zoom) -->
   <div id="imageModal" class="modal">
     <span class="modal-close" onclick="closeModal()">&times;</span>
     <img class="modal-content" id="modalImg" src="" alt="">
@@ -358,13 +348,16 @@
       const slides = document.querySelectorAll('.carousel-slide img');
       const totalSlides = slides.length;
       
+      // Aseguramos que el contenedor tenga el ancho total de todas las imágenes
+      slidesContainer.style.width = (totalSlides * 100) + "%";
+      
       // Función global para desplazar el carrusel
       window.moveSlide = function(step) {
         slideIndex = (slideIndex + step + totalSlides) % totalSlides;
-        slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+        slidesContainer.style.transform = `translateX(-${slideIndex * (100 / totalSlides)}%)`;
       };
       
-      // Modal: Abrir zoom al hacer click en cada imagen
+      // Modal: Abrir al hacer clic en la imagen para zoom
       const modal = document.getElementById('imageModal');
       const modalImg = document.getElementById('modalImg');
       
@@ -384,7 +377,7 @@
         modalImg.classList.remove('open');
       };
       
-      // IntersectionObserver para animar las secciones al hacer scroll
+      // IntersectionObserver para animar secciones al hacer scroll
       const sections = document.querySelectorAll('section');
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -399,7 +392,7 @@
         observer.observe(section);
       });
       
-      // Ripple Effect para elementos con clase "ripple"
+      // Ripple Effect para elementos con la clase "ripple"
       document.querySelectorAll('.ripple').forEach(element => {
         element.addEventListener('click', function(e) {
           const circle = document.createElement('span');
