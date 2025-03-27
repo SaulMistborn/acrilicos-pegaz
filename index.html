@@ -4,22 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acrílicos Pegaz</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Estilos globales */
+    /* Global Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      /* Fondo general con degradé en tonos suaves */
       background: linear-gradient(to bottom right, #cfd8dc, #eceff1);
       color: #333;
     }
-    /* Contenedor central de cada sección */
+    
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 0 20px;
     }
+    
     header {
       background: linear-gradient(135deg, #87CEEB, #FFA07A);
       color: #fff;
@@ -30,7 +32,9 @@
       text-transform: uppercase;
       border-bottom-left-radius: 50% 20px;
       border-bottom-right-radius: 50% 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+    
     nav {
       display: flex;
       justify-content: center;
@@ -39,6 +43,7 @@
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
     }
+    
     nav a {
       margin: 0 20px;
       text-decoration: none;
@@ -49,36 +54,80 @@
       border-radius: 5px;
       transition: color 0.3s, background-color 0.3s, transform 0.3s;
     }
+    
     nav a:hover {
       color: #333;
       background-color: rgba(255,255,255,0.3);
       transform: scale(1.05);
     }
+    
+    /* Secciones y animaciones de scroll */
     section {
+      position: relative;
       padding: 60px 20px;
       text-align: center;
+      overflow: hidden;
     }
+    
     section h2 {
       font-size: 2.2em;
       margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
+    
     section p {
       font-size: 1.2em;
       line-height: 1.6;
       margin: 0 auto 20px;
       max-width: 800px;
     }
-    /* Fondos y detalles para cada sección */
-    #inicio {
-      background: linear-gradient(135deg, #bbdefb, #e3f2fd);
+    
+    /* Scroll Animation Classes */
+    .hidden-section {
+      opacity: 0;
+      transform: translateY(20px);
     }
+    
+    .visible-section {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    /* Parallax effect en la sección Inicio */
+    #inicio {
+      background: url('parallax-bg.jpg') no-repeat center center;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    
+    #inicio::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(187,222,251,0.7);
+      z-index: 0;
+    }
+    
+    #inicio .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Fondo para Nosotros */
     #nosotros {
       background: linear-gradient(135deg, #fce4ec, #f8bbd0);
     }
+    
+    /* Fondo para Portafolio */
     #portafolio {
       background: linear-gradient(135deg, #e0f7fa, #e1f5fe);
     }
-    /* Estilos para el carrusel */
+    
+    /* Carousel Styles */
     .carousel-container {
       position: relative;
       width: 80%;
@@ -89,16 +138,20 @@
       border-radius: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+    
     .carousel-slide {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
+    
     .carousel-slide img {
       width: 100%;
       flex: 0 0 100%;
       height: 100%;
       object-fit: cover;
+      cursor: pointer;
     }
+    
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -111,18 +164,23 @@
       border-radius: 50%;
       font-size: 1.5em;
       transition: background-color 0.3s, transform 0.3s;
+      z-index: 2;
     }
+    
     .carousel-btn.prev {
       left: 10px;
     }
+    
     .carousel-btn.next {
       right: 10px;
     }
+    
     .carousel-btn:hover {
       background-color: rgba(0, 0, 0, 0.7);
       transform: translateY(-50%) scale(1.1);
     }
-    /* Sección de contacto */
+    
+    /* Contacto */
     .contact-info {
       background: #FFA07A;
       color: #fff;
@@ -130,34 +188,72 @@
       border-top-left-radius: 50% 20px;
       border-top-right-radius: 50% 20px;
     }
+    
     .contact-info p {
       font-size: 1.2em;
       margin: 10px 0;
     }
+    
     .contact-info a {
       color: #fff;
       text-decoration: underline;
     }
-    /* Estilos responsivos */
+    
+    /* Modal para imagen ampliada */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      color: #fff;
+      font-size: 2em;
+      cursor: pointer;
+    }
+    
+    /* Responsive */
     @media (max-width: 768px) {
       header {
         font-size: 2em;
         padding: 30px 10px;
       }
+      
       nav a {
         font-size: 1em;
         margin: 0 10px;
       }
+      
       section h2 {
         font-size: 1.8em;
       }
+      
       section p {
         font-size: 1em;
       }
+      
       .carousel-container {
         width: 95%;
         height: 300px;
       }
+      
       .carousel-btn {
         font-size: 1.2em;
         padding: 8px;
@@ -176,7 +272,7 @@
     <a href="#contacto">Contacto</a>
   </nav>
   
-  <section id="inicio">
+  <section id="inicio" class="hidden-section">
     <div class="container">
       <h2>Bienvenidos</h2>
       <p>En Acrílicos Pegaz, transformamos tus ideas en realidad con nuestros servicios de acrílico y policarbonato sólido de alta calidad.</p>
@@ -187,19 +283,19 @@
     </div>
   </section>
   
-  <section id="nosotros">
+  <section id="nosotros" class="hidden-section">
     <div class="container">
       <h2>Nosotros</h2>
       <p>Con años de experiencia en el mercado, nos especializamos en la transformación de acrílicos y policarbonato sólido, ofreciendo soluciones personalizadas para cada cliente. Nuestro equipo utiliza tecnología de corte láser de última generación para garantizar precisión y calidad en cada proyecto.</p>
       <p>Desde displays publicitarios hasta mobiliario personalizado, estamos comprometidos con la excelencia y la satisfacción del cliente en cada paso del proceso.</p>
-      <!-- Figura decorativa adicional -->
+      <!-- Figura decorativa -->
       <svg width="120" height="80">
         <rect x="10" y="10" width="100" height="60" rx="15" ry="15" fill="#f8bbd0" stroke="#f06292" stroke-width="2" />
       </svg>
     </div>
   </section>
   
-  <section id="portafolio">
+  <section id="portafolio" class="hidden-section">
     <div class="container">
       <h2>Portafolio</h2>
       <div class="carousel-container">
@@ -222,7 +318,7 @@
     </div>
   </section>
   
-  <section id="contacto" class="contact-info">
+  <section id="contacto" class="contact-info hidden-section">
     <div class="container">
       <h2>Contacto</h2>
       <p><strong>Dirección:</strong> Siglo de Torreón 709 Nte, esquina con Guerrero, C.P. 27000</p>
@@ -232,7 +328,14 @@
     </div>
   </section>
   
+  <!-- Modal para imagen ampliada -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImg" src="" alt="">
+  </div>
+  
   <script>
+    /* Carousel functionality */
     let slideIndex = 0;
     const slidesContainer = document.querySelector('.carousel-slide');
     const slides = document.querySelectorAll('.carousel-slide img');
@@ -242,6 +345,37 @@
       slideIndex = (slideIndex + step + totalSlides) % totalSlides;
       slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
+    
+    /* Modal functionality para ampliar imágenes */
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    
+    slides.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+      });
+    });
+    
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+    
+    /* Scroll animations usando IntersectionObserver */
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible-section');
+          entry.target.classList.remove('hidden-section');
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    sections.forEach(section => {
+      observer.observe(section);
+    });
   </script>
 </body>
 </html>
