@@ -49,7 +49,7 @@
     }
     
     header img {
-      height: 50px;
+      height: 70px; /* Logotipo más grande */
       margin-right: 15px;
     }
     
@@ -169,6 +169,7 @@
     }
     
     .carousel-slide img {
+      display: block; /* Para evitar espacios extra en inline-block */
       width: 100%;
       flex: 0 0 100%;
       height: 100%;
@@ -178,7 +179,7 @@
     }
     
     .carousel-slide img:hover {
-      transform: scale(1.03);
+      transform: scale(1.05); /* Zoom ajustado para todas las imágenes */
     }
     
     .carousel-btn {
