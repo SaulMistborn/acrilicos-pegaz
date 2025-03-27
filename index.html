@@ -7,11 +7,11 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Paleta de Colores:
+    /* Paleta de Colores (Tonos azules):
        - Fondo: #f8f9fa
        - Primario (textos y acentos): #343a40
        - Secundario: #6c757d
-       - Acento: #ff6f61 */
+       - Acento: Tonos de azul */
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -28,7 +28,10 @@
     }
     
     header {
-      background: linear-gradient(135deg, #ff6f61, #ff9a85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1565c0, #1e88e5);
       color: #fff;
       text-align: center;
       padding: 40px 20px;
@@ -45,13 +48,18 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
     
+    header img {
+      height: 50px;
+      margin-right: 15px;
+    }
+    
     nav {
       position: sticky;
       top: 0;
       z-index: 100;
       display: flex;
       justify-content: center;
-      background: #ff6f61;
+      background: #1565c0;
       padding: 15px;
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
@@ -123,7 +131,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(255,111,97,0.7);
+      background: rgba(21,101,192,0.7);
       z-index: 0;
     }
     
@@ -134,7 +142,7 @@
     
     /* Fondo para Nosotros */
     #nosotros {
-      background: linear-gradient(135deg, #ffe0dc, #ffeae6);
+      background: linear-gradient(135deg, #e1f5fe, #e3f2fd);
     }
     
     /* Fondo para Portafolio */
@@ -220,12 +228,12 @@
     }
     
     .carousel-indicators span.active {
-      background-color: #ff6f61;
+      background-color: #1565c0;
     }
     
     /* Contacto */
     .contact-info {
-      background: #ff6f61;
+      background: #1565c0;
       color: #fff;
       padding: 40px 20px;
       border-top-left-radius: 50% 20px;
@@ -243,7 +251,7 @@
       text-decoration: underline;
     }
     
-    /* Modal con efecto */
+    /* Modal con efecto para imagen ampliada */
     .modal {
       display: none;
       position: fixed;
@@ -320,6 +328,7 @@
 </head>
 <body>
   <header>
+    <img src="logotipo.png" alt="Logotipo Acrílicos Pegaz">
     Acrílicos Pegaz
   </header>
   <nav>
@@ -335,7 +344,7 @@
       <p>En Acrílicos Pegaz, transformamos tus ideas en realidad con nuestros servicios de acrílico y policarbonato sólido de alta calidad.</p>
       <!-- Figura decorativa -->
       <svg width="100" height="100">
-        <circle cx="50" cy="50" r="40" stroke="#ff6f61" stroke-width="3" fill="#ffe0dc" />
+        <circle cx="50" cy="50" r="40" stroke="#1565c0" stroke-width="3" fill="#e1f5fe" />
       </svg>
     </div>
   </section>
@@ -347,7 +356,7 @@
       <p>Desde displays publicitarios hasta mobiliario personalizado, estamos comprometidos con la excelencia y la satisfacción del cliente en cada paso del proceso.</p>
       <!-- Figura decorativa -->
       <svg width="120" height="80">
-        <rect x="10" y="10" width="100" height="60" rx="15" ry="15" fill="#ffeae6" stroke="#ff6f61" stroke-width="2" />
+        <rect x="10" y="10" width="100" height="60" rx="15" ry="15" fill="#e3f2fd" stroke="#1565c0" stroke-width="2" />
       </svg>
     </div>
   </section>
