@@ -115,7 +115,7 @@
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
     
-    /* Section Backgrounds */
+    /* Sección Backgrounds */
     #inicio {
       background: linear-gradient(135deg, #bbdefb, #e3f2fd);
     }
@@ -137,7 +137,7 @@
       margin: 40px auto;
       overflow: hidden;
       border-radius: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     
     .carousel-slide {
@@ -146,11 +146,12 @@
       transform: translateX(0);
     }
     
-    /* Cada imagen ocupa el 100% del ancho del contenedor */
+    /* Cada imagen ocupará el 100% del ancho del contenedor. 
+       Cambiamos "object-fit" a "contain" para que la imagen se vea completa sin recortes. */
     .carousel-slide img {
       flex: 0 0 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       cursor: pointer;
       transition: transform 0.3s;
     }
@@ -159,7 +160,7 @@
       transform: scale(1.05);
     }
     
-    /* Flechas del Carrusel – Pequeñas pero visibles */
+    /* Flechas del Carrusel: Pequeñas pero visibles */
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -229,6 +230,7 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
       transform: scale(0.8);
       transition: transform 0.3s ease-out;
+      object-fit: contain;
     }
     
     .modal-content.open {
@@ -355,12 +357,13 @@
       const slides = document.querySelectorAll('.carousel-slide img');
       const totalSlides = slides.length;
       
+      // Definimos la función global para desplazar el carrusel
       window.moveSlide = function(step) {
         slideIndex = (slideIndex + step + totalSlides) % totalSlides;
         slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
       };
       
-      // Modal: Abrir al hacer click en imagenes
+      // Modal: Abrir al hacer click en cada imagen
       const modal = document.getElementById('imageModal');
       const modalImg = document.getElementById('modalImg');
       
@@ -395,7 +398,7 @@
         observer.observe(section);
       });
       
-      // Ripple Effect
+      // Ripple Effect para elementos con clase "ripple"
       document.querySelectorAll('.ripple').forEach(element => {
         element.addEventListener('click', function(e) {
           const circle = document.createElement('span');
