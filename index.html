@@ -148,7 +148,7 @@
       width: 100%;
       flex: 0 0 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain; /* Se cambia de 'cover' a 'contain' para ver la imagen completa */
       cursor: pointer;
     }
     
@@ -318,7 +318,8 @@
     </div>
   </section>
   
-  <section id="contacto" class="contact-info hidden-section">
+  <!-- Sección de Contacto modificada para mostrarse de inmediato -->
+  <section id="contacto" class="contact-info visible-section">
     <div class="container">
       <h2>Contacto</h2>
       <p><strong>Dirección:</strong> Siglo de Torreón 709 Nte, esquina con Guerrero, C.P. 27000</p>
