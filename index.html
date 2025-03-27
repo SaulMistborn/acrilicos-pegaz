@@ -115,27 +115,9 @@
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
     
-    /* Efecto parallax en la sección Inicio */
+    /* Fondo para la sección Inicio sin parallax */
     #inicio {
-      background: url('parallax-bg.jpg') no-repeat center center;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-    
-    #inicio::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(187,222,251,0.7);
-      z-index: 0;
-    }
-    
-    #inicio .container {
-      position: relative;
-      z-index: 1;
+      background: linear-gradient(135deg, #bbdefb, #e3f2fd);
     }
     
     /* Fondo para Nosotros */
@@ -389,7 +371,7 @@
         modal.style.display = 'flex';
         modalImg.src = img.src;
         modalImg.alt = img.alt;
-        // Forzamos el efecto zoom añadiendo la clase 'open'
+        // Se activa el efecto zoom añadiendo la clase 'open'
         modal.classList.add('open');
       });
     });
