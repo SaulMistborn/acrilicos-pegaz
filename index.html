@@ -17,7 +17,7 @@
             color: #fff;
             text-align: center;
             padding: 20px;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -31,7 +31,7 @@
             margin: 0 20px;
             text-decoration: none;
             color: #fff;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             transition: 0.3s;
         }
@@ -45,51 +45,56 @@
             justify-content: space-around;
         }
         .section {
-            width: 45%;
-            padding: 20px;
+            width: 90%;
+            padding: 30px;
             background: #FFDEAD;
-            margin: 10px;
+            margin: 10px auto;
             border-radius: 10px;
             text-align: center;
             box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
         }
         .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            position: relative;
+            max-width: 600px;
+            margin: auto;
         }
         .gallery img {
-            width: 200px;
-            height: auto;
-            margin: 10px;
-            cursor: pointer;
-            transition: 0.3s;
+            width: 100%;
             border-radius: 10px;
         }
-        .gallery img:hover {
-            transform: scale(1.1);
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.5);
         }
+        .prev { left: 0; }
+        .next { right: 0; }
         .contact {
             background: #FFA07A;
             color: #fff;
             padding: 30px;
             text-align: center;
-            font-size: 18px;
+            font-size: 20px;
         }
         footer {
             text-align: center;
             background: #87CEEB;
             color: #fff;
             padding: 10px;
-            font-size: 14px;
+            font-size: 16px;
         }
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
             .section {
-                width: 90%;
+                width: 100%;
             }
         }
     </style>
@@ -111,17 +116,15 @@
         </section>
         <section id="nosotros" class="section">
             <h2>Nosotros</h2>
-            <p>Nos especializamos en la transformación de acrílico y policarbonato sólido, ofreciendo servicios de corte láser de alta precisión.</p>
+            <p>Nos especializamos en la transformación de acrílico y policarbonato sólido, ofreciendo servicios de corte láser de alta precisión. Trabajamos con los más altos estándares de calidad para ofrecer productos personalizados según las necesidades de nuestros clientes.</p>
         </section>
     </div>
     <section id="portafolio" class="section">
         <h2>Portafolio</h2>
         <div class="gallery">
-             <img src="producto1.jpg" alt="Producto 1" onclick="expandImage(this)">
-            <img src="producto2.jpg" alt="Producto 2" onclick="expandImage(this)">
-            <img src="producto3.jpg" alt="Producto 3" onclick="expandImage(this)">
-            <img src="producto4.jpg" alt="Producto 4" onclick="expandImage(this)">
-            <img src="producto5.jpg" alt="Producto 5" onclick="expandImage(this)">
+            <img id="galleryImg" src="producto1.jpg" alt="Producto 1">
+            <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+            <span class="next" onclick="changeImage(1)">&#10095;</span>
         </div>
     </section>
     <section id="contacto" class="contact">
@@ -135,30 +138,13 @@
         <p>&copy; 2025 Acrílicos Pegaz - Todos los derechos reservados.</p>
     </footer>
     <script>
-        function expandImage(img) {
-            const modal = document.createElement('div');
-            modal.style.position = 'fixed';
-            modal.style.top = '0';
-            modal.style.left = '0';
-            modal.style.width = '100%';
-            modal.style.height = '100%';
-            modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
-            modal.style.display = 'flex';
-            modal.style.alignItems = 'center';
-            modal.style.justifyContent = 'center';
-            modal.style.zIndex = '1000';
-            
-            const imgClone = document.createElement('img');
-            imgClone.src = img.src;
-            imgClone.style.maxWidth = '90%';
-            imgClone.style.maxHeight = '90%';
-            
-            modal.appendChild(imgClone);
-            document.body.appendChild(modal);
-            
-            modal.onclick = function() {
-                document.body.removeChild(modal);
-            }
+        let currentIndex = 1;
+        const images = ["producto1.jpg", "producto2.jpg", "producto3.jpg", "producto4.jpg", "producto5.jpg"];
+        function changeImage(step) {
+            currentIndex += step;
+            if (currentIndex >= images.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            document.getElementById("galleryImg").src = images[currentIndex];
         }
     </script>
 </body>
