@@ -147,9 +147,12 @@
       transition: transform 0.5s ease-in-out;
     }
     
+    /* 
+       Cada imagen se dispone en bloque y se asegura ocupar 
+       el 100% del ancho del contenedor, lo que permite verlas una por una.
+    */
     .carousel-slide img {
-      width: 100%;
-      flex: 0 0 100%;
+      min-width: 100%;
       height: 100%;
       object-fit: cover;
       cursor: pointer;
@@ -219,8 +222,7 @@
       width: 100vw;
       height: 100vh;
       background-color: rgba(0,0,0,0.8);
-      /* Se convierte en contenedor flex para centrar el contenido */
-      display: flex;
+      /* Usamos flex para centrar la imagen */
       align-items: center;
       justify-content: center;
     }
