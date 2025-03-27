@@ -5,15 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acrílicos Pegaz</title>
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Global Styles */
+    /* Paleta de Colores:
+       - Fondo: #f8f9fa
+       - Primario (textos y acentos): #343a40
+       - Secundario: #6c757d
+       - Acento: #ff6f61 */
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom right, #cfd8dc, #eceff1);
-      color: #333;
+      background: #f8f9fa;
+      color: #343a40;
+      transition: background 0.3s ease;
     }
     
     .container {
@@ -23,25 +28,34 @@
     }
     
     header {
-      background: linear-gradient(135deg, #87CEEB, #FFA07A);
+      background: linear-gradient(135deg, #ff6f61, #ff9a85);
       color: #fff;
       text-align: center;
       padding: 40px 20px;
+      font-family: 'Montserrat', sans-serif;
       font-size: 2.5em;
-      font-weight: bold;
       text-transform: uppercase;
       border-bottom-left-radius: 50% 20px;
       border-bottom-right-radius: 50% 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    
+    header:hover {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
     
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       justify-content: center;
-      background: #FFA07A;
+      background: #ff6f61;
       padding: 15px;
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
     nav a {
@@ -52,12 +66,11 @@
       font-weight: bold;
       padding: 8px 12px;
       border-radius: 5px;
-      transition: color 0.3s, background-color 0.3s, transform 0.3s;
+      transition: background-color 0.3s, transform 0.3s;
     }
     
     nav a:hover {
-      color: #333;
-      background-color: rgba(255,255,255,0.3);
+      background-color: rgba(255, 255, 255, 0.3);
       transform: scale(1.05);
     }
     
@@ -70,6 +83,7 @@
     }
     
     section h2 {
+      font-family: 'Montserrat', sans-serif;
       font-size: 2.2em;
       margin-bottom: 20px;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
@@ -82,7 +96,7 @@
       max-width: 800px;
     }
     
-    /* Scroll Animation Classes */
+    /* Animación de scroll */
     .hidden-section {
       opacity: 0;
       transform: translateY(20px);
@@ -94,11 +108,12 @@
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
     
-    /* Parallax effect en la sección Inicio */
+    /* Parallax en la sección Inicio */
     #inicio {
       background: url('parallax-bg.jpg') no-repeat center center;
       background-attachment: fixed;
       background-size: cover;
+      position: relative;
     }
     
     #inicio::before {
@@ -108,7 +123,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(187,222,251,0.7);
+      background: rgba(255,111,97,0.7);
       z-index: 0;
     }
     
@@ -119,12 +134,12 @@
     
     /* Fondo para Nosotros */
     #nosotros {
-      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      background: linear-gradient(135deg, #ffe0dc, #ffeae6);
     }
     
     /* Fondo para Portafolio */
     #portafolio {
-      background: linear-gradient(135deg, #e0f7fa, #e1f5fe);
+      background: linear-gradient(135deg, #e9f7fd, #f0fbff);
     }
     
     /* Carousel Styles */
@@ -136,7 +151,8 @@
       margin: 40px auto;
       overflow: hidden;
       border-radius: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      background: #fff;
     }
     
     .carousel-slide {
@@ -148,8 +164,13 @@
       width: 100%;
       flex: 0 0 100%;
       height: 100%;
-      object-fit: contain; /* Se cambia de 'cover' a 'contain' para ver la imagen completa */
+      object-fit: contain;
       cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .carousel-slide img:hover {
+      transform: scale(1.03);
     }
     
     .carousel-btn {
@@ -180,13 +201,36 @@
       transform: translateY(-50%) scale(1.1);
     }
     
+    /* Indicadores del carrusel */
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    
+    .carousel-indicators span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      background-color: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .carousel-indicators span.active {
+      background-color: #ff6f61;
+    }
+    
     /* Contacto */
     .contact-info {
-      background: #FFA07A;
+      background: #ff6f61;
       color: #fff;
       padding: 40px 20px;
       border-top-left-radius: 50% 20px;
       border-top-right-radius: 50% 20px;
+      box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
     }
     
     .contact-info p {
@@ -199,7 +243,7 @@
       text-decoration: underline;
     }
     
-    /* Modal para imagen ampliada */
+    /* Modal con efecto */
     .modal {
       display: none;
       position: fixed;
@@ -212,12 +256,25 @@
       background-color: rgba(0,0,0,0.8);
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal.show {
+      display: flex;
+      opacity: 1;
     }
     
     .modal-content {
       max-width: 90%;
       max-height: 90%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+      transform: scale(0.95);
+    }
+    
+    .modal.show .modal-content {
+      transform: scale(1);
     }
     
     .modal-close {
@@ -278,7 +335,7 @@
       <p>En Acrílicos Pegaz, transformamos tus ideas en realidad con nuestros servicios de acrílico y policarbonato sólido de alta calidad.</p>
       <!-- Figura decorativa -->
       <svg width="100" height="100">
-        <circle cx="50" cy="50" r="40" stroke="#FFA07A" stroke-width="3" fill="#bbdefb" />
+        <circle cx="50" cy="50" r="40" stroke="#ff6f61" stroke-width="3" fill="#ffe0dc" />
       </svg>
     </div>
   </section>
@@ -290,7 +347,7 @@
       <p>Desde displays publicitarios hasta mobiliario personalizado, estamos comprometidos con la excelencia y la satisfacción del cliente en cada paso del proceso.</p>
       <!-- Figura decorativa -->
       <svg width="120" height="80">
-        <rect x="10" y="10" width="100" height="60" rx="15" ry="15" fill="#f8bbd0" stroke="#f06292" stroke-width="2" />
+        <rect x="10" y="10" width="100" height="60" rx="15" ry="15" fill="#ffeae6" stroke="#ff6f61" stroke-width="2" />
       </svg>
     </div>
   </section>
@@ -315,10 +372,13 @@
         <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
         <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
       </div>
+      <!-- Indicadores del carrusel -->
+      <div class="carousel-indicators">
+        <!-- Se generarán dinámicamente -->
+      </div>
     </div>
   </section>
   
-  <!-- Sección de Contacto modificada para mostrarse de inmediato -->
   <section id="contacto" class="contact-info visible-section">
     <div class="container">
       <h2>Contacto</h2>
@@ -329,7 +389,7 @@
     </div>
   </section>
   
-  <!-- Modal para imagen ampliada -->
+  <!-- Modal con efecto para imagen ampliada -->
   <div id="imageModal" class="modal">
     <span class="modal-close" onclick="closeModal()">&times;</span>
     <img class="modal-content" id="modalImg" src="" alt="">
@@ -341,27 +401,63 @@
     const slidesContainer = document.querySelector('.carousel-slide');
     const slides = document.querySelectorAll('.carousel-slide img');
     const totalSlides = slides.length;
+    const indicatorsContainer = document.querySelector('.carousel-indicators');
+    
+    // Genera indicadores según el número de imágenes
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('span');
+      dot.addEventListener('click', () => goToSlide(i));
+      indicatorsContainer.appendChild(dot);
+    }
+    
+    const dots = document.querySelectorAll('.carousel-indicators span');
+    
+    function updateIndicators() {
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === slideIndex);
+      });
+    }
     
     function moveSlide(step) {
       slideIndex = (slideIndex + step + totalSlides) % totalSlides;
       slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+      updateIndicators();
     }
     
-    /* Modal functionality para ampliar imágenes */
+    function goToSlide(index) {
+      slideIndex = index;
+      slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+      updateIndicators();
+    }
+    
+    updateIndicators();
+    
+    /* Modal functionality para ampliar imágenes con efecto */
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImg');
     
     slides.forEach(img => {
       img.addEventListener('click', () => {
-        modal.style.display = 'flex';
         modalImg.src = img.src;
         modalImg.alt = img.alt;
+        modal.classList.add('show');
       });
     });
     
     function closeModal() {
-      modal.style.display = 'none';
+      modal.classList.remove('show');
+      // Opcional: esperar la transición para ocultar completamente
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 300);
     }
+    
+    // Para reiniciar display cuando se muestre el modal
+    modal.addEventListener('transitionstart', () => {
+      if(modal.classList.contains('show')){
+        modal.style.display = 'flex';
+      }
+    });
     
     /* Scroll animations usando IntersectionObserver */
     const sections = document.querySelectorAll('section');
