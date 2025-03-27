@@ -5,15 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acrílicos Pegaz</title>
   <style>
-    /* Estilos generales */
+    /* Estilos globales */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom right, #e0f7fa, #f0f8ff);
+      /* Fondo general con degradé en tonos suaves */
+      background: linear-gradient(to bottom right, #cfd8dc, #eceff1);
       color: #333;
     }
-
+    /* Contenedor central de cada sección */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
     header {
       background: linear-gradient(135deg, #87CEEB, #FFA07A);
       color: #fff;
@@ -25,7 +31,6 @@
       border-bottom-left-radius: 50% 20px;
       border-bottom-right-radius: 50% 20px;
     }
-
     nav {
       display: flex;
       justify-content: center;
@@ -34,7 +39,6 @@
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
     }
-
     nav a {
       margin: 0 20px;
       text-decoration: none;
@@ -45,55 +49,56 @@
       border-radius: 5px;
       transition: color 0.3s, background-color 0.3s, transform 0.3s;
     }
-
     nav a:hover {
       color: #333;
       background-color: rgba(255,255,255,0.3);
       transform: scale(1.05);
     }
-
     section {
       padding: 60px 20px;
       text-align: center;
     }
-
-    h2 {
+    section h2 {
       font-size: 2.2em;
-      color: #FFA07A;
       margin-bottom: 20px;
     }
-
-    p {
+    section p {
       font-size: 1.2em;
       line-height: 1.6;
-      max-width: 800px;
       margin: 0 auto 20px;
+      max-width: 800px;
     }
-
+    /* Fondos y detalles para cada sección */
+    #inicio {
+      background: linear-gradient(135deg, #bbdefb, #e3f2fd);
+    }
+    #nosotros {
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    }
+    #portafolio {
+      background: linear-gradient(135deg, #e0f7fa, #e1f5fe);
+    }
     /* Estilos para el carrusel */
     .carousel-container {
       position: relative;
       width: 80%;
       max-width: 500px;
       height: 350px;
-      margin: auto;
+      margin: 40px auto;
       overflow: hidden;
       border-radius: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-
     .carousel-slide {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
-
     .carousel-slide img {
       width: 100%;
       flex: 0 0 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -107,21 +112,17 @@
       font-size: 1.5em;
       transition: background-color 0.3s, transform 0.3s;
     }
-
     .carousel-btn.prev {
       left: 10px;
     }
-
     .carousel-btn.next {
       right: 10px;
     }
-
     .carousel-btn:hover {
       background-color: rgba(0, 0, 0, 0.7);
       transform: translateY(-50%) scale(1.1);
     }
-
-    /* Estilos para la sección de contacto */
+    /* Sección de contacto */
     .contact-info {
       background: #FFA07A;
       color: #fff;
@@ -129,42 +130,34 @@
       border-top-left-radius: 50% 20px;
       border-top-right-radius: 50% 20px;
     }
-
     .contact-info p {
       font-size: 1.2em;
       margin: 10px 0;
     }
-
     .contact-info a {
       color: #fff;
       text-decoration: underline;
     }
-
     /* Estilos responsivos */
     @media (max-width: 768px) {
       header {
         font-size: 2em;
         padding: 30px 10px;
       }
-
       nav a {
         font-size: 1em;
         margin: 0 10px;
       }
-
-      h2 {
+      section h2 {
         font-size: 1.8em;
       }
-
-      p {
+      section p {
         font-size: 1em;
       }
-
       .carousel-container {
         width: 95%;
         height: 300px;
       }
-
       .carousel-btn {
         font-size: 1.2em;
         padding: 8px;
@@ -182,42 +175,63 @@
     <a href="#portafolio">Portafolio</a>
     <a href="#contacto">Contacto</a>
   </nav>
+  
   <section id="inicio">
-    <h2>Bienvenidos</h2>
-    <p>En Acrílicos Pegaz, transformamos tus ideas en realidad con nuestros servicios de acrílico y policarbonato sólido de alta calidad.</p>
-  </section>
-  <section id="nosotros">
-    <h2>Nosotros</h2>
-    <p>Con años de experiencia en el mercado, nos especializamos en la transformación de acrílicos y policarbonato sólido, ofreciendo soluciones personalizadas para cada cliente. Nuestro equipo utiliza tecnología de corte láser de última generación para garantizar precisión y calidad en cada proyecto.</p>
-    <p>Desde displays publicitarios hasta mobiliario personalizado, estamos comprometidos con la excelencia y la satisfacción del cliente en cada paso del proceso.</p>
-  </section>
-  <section id="portafolio">
-    <h2>Portafolio</h2>
-    <div class="carousel-container">
-      <div class="carousel-slide">
-        <img src="producto1.jpg" alt="Producto 1">
-        <img src="producto2.jpg" alt="Producto 2">
-        <img src="producto3.jpg" alt="Producto 3">
-        <img src="producto4.jpg" alt="Producto 4">
-        <img src="producto5.jpg" alt="Producto 5">
-        <img src="producto6.jpg" alt="Producto 6">
-        <img src="producto7.jpg" alt="Producto 7">
-        <img src="producto8.jpg" alt="Producto 8">
-        <img src="producto9.jpg" alt="Producto 9">
-        <img src="producto10.jpg" alt="Producto 10">
-        <img src="producto11.jpg" alt="Producto 11">
-      </div>
-      <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-      <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+    <div class="container">
+      <h2>Bienvenidos</h2>
+      <p>En Acrílicos Pegaz, transformamos tus ideas en realidad con nuestros servicios de acrílico y policarbonato sólido de alta calidad.</p>
+      <!-- Figura decorativa -->
+      <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="#FFA07A" stroke-width="3" fill="#bbdefb" />
+      </svg>
     </div>
   </section>
-  <section id="contacto" class="contact-info">
-    <h2>Contacto</h2>
-    <p><strong>Dirección:</strong> Siglo de Torreón 709 Nte, esquina con Guerrero, C.P. 27000</p>
-    <p><strong>WhatsApp:</strong> <a href="https://wa.me/528711151758" target="_blank">+52 871 115 1758</a></p>
-    <p><strong>Email:</strong> (Pendiente)</p>
-    <p><strong>Envíos a toda la República Mexicana.</strong></p>
+  
+  <section id="nosotros">
+    <div class="container">
+      <h2>Nosotros</h2>
+      <p>Con años de experiencia en el mercado, nos especializamos en la transformación de acrílicos y policarbonato sólido, ofreciendo soluciones personalizadas para cada cliente. Nuestro equipo utiliza tecnología de corte láser de última generación para garantizar precisión y calidad en cada proyecto.</p>
+      <p>Desde displays publicitarios hasta mobiliario personalizado, estamos comprometidos con la excelencia y la satisfacción del cliente en cada paso del proceso.</p>
+      <!-- Figura decorativa adicional -->
+      <svg width="120" height="80">
+        <rect x="10" y="10" width="100" height="60" rx="15" ry="15" fill="#f8bbd0" stroke="#f06292" stroke-width="2" />
+      </svg>
+    </div>
   </section>
+  
+  <section id="portafolio">
+    <div class="container">
+      <h2>Portafolio</h2>
+      <div class="carousel-container">
+        <div class="carousel-slide">
+          <img src="producto1.jpg" alt="Producto 1">
+          <img src="producto2.jpg" alt="Producto 2">
+          <img src="producto3.jpg" alt="Producto 3">
+          <img src="producto4.jpg" alt="Producto 4">
+          <img src="producto5.jpg" alt="Producto 5">
+          <img src="producto6.jpg" alt="Producto 6">
+          <img src="producto7.jpg" alt="Producto 7">
+          <img src="producto8.jpg" alt="Producto 8">
+          <img src="producto9.jpg" alt="Producto 9">
+          <img src="producto10.jpg" alt="Producto 10">
+          <img src="producto11.jpg" alt="Producto 11">
+        </div>
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contacto" class="contact-info">
+    <div class="container">
+      <h2>Contacto</h2>
+      <p><strong>Dirección:</strong> Siglo de Torreón 709 Nte, esquina con Guerrero, C.P. 27000</p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/528711151758" target="_blank">+52 871 115 1758</a></p>
+      <p><strong>Email:</strong> (Pendiente)</p>
+      <p><strong>Envíos a toda la República Mexicana.</strong></p>
+    </div>
+  </section>
+  
   <script>
     let slideIndex = 0;
     const slidesContainer = document.querySelector('.carousel-slide');
